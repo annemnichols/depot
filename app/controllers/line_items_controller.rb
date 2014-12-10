@@ -61,7 +61,7 @@ class LineItemsController < ApplicationController
     @line_item = LineItem.find(params[:id])
     @line_item.destroy
     respond_to do |format|
-      if LineItem.find_by_cart_id(@line_item.cart_id).nil? 
+      if Cart.find_by_id(@line_item.cart_id).nil?
         format.html { redirect_to(store_url, :notice => 'Your cart is currently empty.') }
       else
         format.html { redirect_to(@line_item.cart, :notice => 'Item was removed from your cart.') }
