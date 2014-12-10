@@ -43,7 +43,7 @@ class LineItemsControllerTest < ActionController::TestCase
     assert_difference('LineItem.count', -1) do
       delete :destroy, id: @line_item
     end
-    assert_redirected_to cart_url(session[:cart_id])
+    assert_redirected_to store_url
   end
 
 end
